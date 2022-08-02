@@ -10,6 +10,32 @@ rule:
 ## Official(公式レポジトリ)
 - [LnL7/nix-darwin](https://github.com/LnL7/nix-darwin)
 
+
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+
+
+## nixpkgs
+- home-managerを使うのにいる
+```
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+nix-channel --update
+```
+
+## home-manager
+- nixpkgsを入れた後に以下を実行
+```
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+
+nix-shell '<home-manager>' -A install
+```
+
 ## nix-darwin
 - [HomebrewからNix package managerへの移行](https://www.softinio.com/post/moving-from-homebrew-to-nix-package-manager/)
   - [Rahmanian's darwin-configuration.nix](https://github.com/softinio/dotfiles/blob/master/nix/configuration.nix)
@@ -19,15 +45,9 @@ rule:
 
 ## その他
 まじで動かなくなった時
-- [Uninstall nix on MacOS](https://iohk.zendesk.com/hc/en-us/articles/4415830650265-Uninstall-nix-on-MacOS)
-```
-sudo vim bash.bashrc
-```
-```
-rm -rf $HOME/{.nix-channels,.nix-defexpr,.nix-profile}
-```
 
-
+- [macosからの完全nix削除](https://nixos.org/manual/nix/stable/installation/installing-binary.html#macos)
+~~[Uninstall nix on MacOS](https://iohk.zendesk.com/hc/en-us/articles/4415830650265-Uninstall-nix-on-MacOS)~~
 
 ```
 { config, pkgs, ... }:
